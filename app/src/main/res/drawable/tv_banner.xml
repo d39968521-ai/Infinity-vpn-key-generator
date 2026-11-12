@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="320dp"
+    android:height="180dp"
+    android:viewportWidth="320"
+    android:viewportHeight="180">
+
+    <!-- Background Gradient -->
+    <path
+        android:pathData="M0,0h320v180h-320z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="0"
+                android:startY="0"
+                android:endX="320"
+                android:endY="180"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#002133" />
+                <item android:offset="0.5" android:color="#004D73" />
+                <item android:offset="1.0" android:color="#0288D1" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Subtle Geometric Glow Shapes -->
+    <path
+        android:pathData="M240,0 L320,0 L320,180 L180,180 Z"
+        android:fillAlpha="0.15">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="180"
+                android:startY="0"
+                android:endX="320"
+                android:endY="180"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#81D4FA" />
+                <item android:offset="1.0" android:color="#00000000" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Shield / Key Icon on the Left -->
+    <!-- Shield Outer -->
+    <path
+        android:fillColor="#81D4FA"
+        android:pathData="M56,48 L80,38 L104,48 C104,78 80,98 80,98 C80,98 56,78 56,48 Z" />
+
+    <!-- Shield Inner Contrast -->
+    <path
+        android:fillColor="#01579B"
+        android:pathData="M62,52 L80,44 L98,52 C98,74 80,90 80,90 C80,90 62,74 62,52 Z" />
+
+    <!-- Key Symbol inside shield -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M80,54 C76.7,54 74,56.7 74,60 C74,62.2 75.2,64.1 77,65.2 L77,74 L83,74 L83,70 L86,70 L86,67 L83,67 L83,65.2 C84.8,64.1 86,62.2 86,60 C86,56.7 83.3,54 80,54 Z M80,58 C81.1,58 82,58.9 82,60 C82,61.1 81.1,62 80,62 C78.9,62 78,61.1 78,60 C78,58.9 78.9,58 80,58 Z" />
+
+    <!-- Lightning / Speed Glow Accent -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M86,40 L72,62 L82,62 L74,82 L94,56 L82,56 Z"
+        android:fillAlpha="0.35" />
+
+    <!-- TV Badge -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M236,44 L276,44 C278.2,44 280,45.8 280,48 L280,60 C280,62.2 278.2,64 276,64 L236,64 C233.8,64 232,62.2 232,60 L232,48 C232,45.8 233.8,44 236,44 Z" />
+
+    <!-- TV Text Silhouette / Stylized Screen -->
+    <path
+        android:fillColor="#002133"
+        android:pathData="M240,49 L244,49 L244,59 L242,59 L242,51 L240,51 Z M248,49 L251,56 L254,49 L256,49 L252,59 L250,59 L246,49 Z" />
+
+    <!-- Main Title "STRAUS TOP" Letters (Vectorized High-Res) -->
+    <!-- S -->
+    <path android:fillColor="#FFFFFF" android:pathData="M124,56 C124,50 138,50 138,44 C138,41 135,40 131,40 C127,40 124,42 124,44 L119,42 C120,38 125,35 131,35 C139,35 144,39 144,45 C144,51 130,51 130,57 C130,60 133,61 137,61 C141,61 144,59 145,57 L150,59 C148,63 143,66 137,66 C129,66 124,62 124,56 Z" />
+    <!-- T -->
+    <path android:fillColor="#FFFFFF" android:pathData="M152,36 L170,36 L170,41 L163,41 L163,65 L158,65 L158,41 L152,41 Z" />
+    <!-- R -->
+    <path android:fillColor="#FFFFFF" android:pathData="M173,36 L184,36 C190,36 194,39 194,44 C194,48 191,51 187,52 L195,65 L189,65 L182,53 L178,53 L178,65 L173,65 Z M178,41 L178,48 L183,48 C186,48 189,47 189,44 C189,42 186,41 183,41 Z" />
+    <!-- TOP Subtitle in Cyan -->
+    <!-- T -->
+    <path android:fillColor="#81D4FA" android:pathData="M124,75 L136,75 L136,79 L132,79 L132,95 L128,95 L128,79 L124,79 Z" />
+    <!-- O -->
+    <path android:fillColor="#81D4FA" android:pathData="M140,75 L149,75 C155,75 158,79 158,85 C158,91 155,95 149,95 L140,95 Z M144,79 L144,91 L148,91 C152,91 154,88 154,85 C154,82 152,79 148,79 Z" />
+    <!-- P -->
+    <path android:fillColor="#81D4FA" android:pathData="M162,75 L171,75 C176,75 179,78 179,83 C179,88 176,91 171,91 L166,91 L166,95 L162,95 Z M166,79 L166,87 L170,87 C173,87 175,85 175,83 C175,81 173,79 170,79 Z" />
+
+    <!-- Subtitle text badge "SMART TV & ANDROID" -->
+    <path
+        android:fillColor="#E1F5FE"
+        android:pathData="M56,125 L280,125 C282.2,125 284,126.8 284,129 L284,151 C284,153.2 282.2,155 280,155 L56,155 C53.8,155 52,153.2 52,151 L52,129 C52,126.8 53.8,125 56,125 Z"
+        android:fillAlpha="0.12" />
+
+    <!-- TV Screen remote icon -->
+    <path
+        android:fillColor="#81D4FA"
+        android:pathData="M66,134 L82,134 C83.1,134 84,134.9 84,136 L84,146 C84,147.1 83.1,148 82,148 L66,148 C64.9,148 64,147.1 64,146 L64,136 C64,134.9 64.9,134 66,134 Z M66,136 L66,144 L82,144 L82,136 Z M71,149 L77,149 L78,151 L70,151 Z" />
+
+</vector>

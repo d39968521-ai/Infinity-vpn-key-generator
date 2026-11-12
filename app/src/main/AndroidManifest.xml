@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+    <!-- Android TV compatibility: Touchscreen is optional for Smart TV / Android TV -->
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.software.leanback" android:required="false" />
+
+    <queries>
+        <package android:name="com.happproxy" />
+        <package android:name="io.github.hiddify.app" />
+        <package android:name="io.nekohasekai.sagernet" />
+        <package android:name="com.v2ray.ang" />
+        <package android:name="com.github.kr328.clash" />
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="hiddify" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:banner="@drawable/tv_banner"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:banner="@drawable/tv_banner"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:theme="@style/Theme.MyApplication">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Quick Subscription App Widget -->
+        <receiver
+            android:name=".widget.QuickSubAppWidgetProvider"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.widget.ACTION_GENERATE_FROM_WIDGET" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_quick_sub_info" />
+        </receiver>
+
+        <!-- Expiry Notification Receivers -->
+        <receiver
+            android:name=".util.ExpiryNotificationReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".util.ExpiryActionReceiver"
+            android:exported="false" />
+    </application>
+
+</manifest>
