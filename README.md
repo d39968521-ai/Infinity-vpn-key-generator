@@ -4,11 +4,13 @@
 
 ---
 
-## 📦 Готовый APK в файлах проекта
+## 📦 Как скачать готовый APK
 
-Готовый установочный файл сохранён прямо в репозитории проекта:
-- 📄 **[`StrausTop-Universal-TV-Mobile.apk`](./StrausTop-Universal-TV-Mobile.apk)** (в корне проекта)
-- 📁 **[`releases/StrausTop-Universal-TV-Mobile.apk`](./releases/StrausTop-Universal-TV-Mobile.apk)** (в папке `releases/`)
+1. **Прямо в AI Studio**:
+   - Откройте меню **Settings (Настройки / значок шестерёнки)** в правом верхнем углу AI Studio и выберите **Generate APK / Download APK** (или **Export ZIP**).
+2. **Через GitHub Releases (автосборка)**:
+   - В проект встроен workflow **`.github/workflows/build-apk.yml`** (JDK 21 + Gradle 9.3.1 + Android SDK 36.1).
+   - При отправке проекта в GitHub (**Push to GitHub**) автоматически запускается сборка `StrausTop-Universal-TV-Mobile.apk` и прикрепляется к **Actions Artifacts** и **Releases**.
 
 ---
 

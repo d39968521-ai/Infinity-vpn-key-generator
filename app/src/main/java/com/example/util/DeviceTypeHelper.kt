@@ -28,16 +28,7 @@ object DeviceTypeHelper {
         if (pm.hasSystemFeature(PackageManager.FEATURE_LEANBACK)) {
             return true
         }
-        if (pm.hasSystemFeature(PackageManager.FEATURE_TELEVISION)) {
-            return true
-        }
         if (pm.hasSystemFeature("android.hardware.type.television")) {
-            return true
-        }
-
-        // 3. Fallback check for missing touchscreen
-        val hasTouch = pm.hasSystemFeature(PackageManager.FEATURE_TOUCHSCREEN)
-        if (!hasTouch) {
             return true
         }
 

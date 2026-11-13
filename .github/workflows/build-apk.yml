@@ -17,25 +17,39 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      - name: Set up JDK 21 (Required for AGP 9.1.1 & Gradle 9.3.1)
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'temurin'
 
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+      - name: Setup Android SDK (API 36.1)
+        uses: android-actions/setup-android@v3
 
-      - name: Decode debug keystore
+      - name: Accept Android SDK Licenses & Install API 36.1
         run: |
+          yes | sdkmanager --licenses || true
+          sdkmanager "platforms;android-36.1" "build-tools;36.0.0" || sdkmanager "platforms;android-36" "build-tools;35.0.0" || true
+
+      - name: Setup Gradle 9.3.1
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.3.1'
+
+      - name: Prepare environment & debug keystore
+        run: |
+          rm -f local.properties
+          if [ ! -f .env ] && [ -f .env.example ]; then
+            cp .env.example .env
+          fi
           if [ -f debug.keystore.base64 ]; then
             base64 -d debug.keystore.base64 > debug.keystore
           fi
 
       - name: Build Debug APK
-        run: gradle assembleDebug
+        run: gradle assembleDebug --no-daemon
 
-      - name: Rename APK
+      - name: Copy APK to releases
         run: |
           mkdir -p releases
           cp app/build/outputs/apk/debug/app-debug.apk releases/StrausTop-Universal-TV-Mobile.apk
@@ -46,7 +60,7 @@ jobs:
           name: StrausTop-Universal-TV-Mobile-APK
           path: releases/StrausTop-Universal-TV-Mobile.apk
 
-      - name: Publish GitHub Release (on tag or manual run)
+      - name: Publish GitHub Release
         if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
         uses: softprops/action-gh-release@v2
         with:
